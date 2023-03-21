@@ -1,4 +1,81 @@
-plt.title('Student Progress')
+# to check the record of any particular student
+        while N == 4:
+            test=input("Enter the test name: ")
+            if test == "ST 1":
+                S5=int(input("Enter the Student Roll Number: "))
+                data3 = df1.loc[S5]
+                print("\nStudent Result: \n\n",data3)
+            elif test == "ST 2":
+                S5=int(input("Enter the Student Roll Number: "))
+                data4 = df2.loc[S5]
+                print("\nStudent Result: \n\n",data4)
+            elif test == "ETE 1":
+                S5=int(input("Enter the Student Roll Number: "))
+                data5 = df2.loc[S5]
+                print("\nStudent Result: \n\n",data5)
+            elif test == "Show Overall Progress Report":
+                S5=int(input("Enter the Student Roll Number: "))
+                x1=[]
+                for i in df6.columns:
+                    x1.append(i)
+                x1.remove("Name")
+                y1=[]
+                z1=''
+                for i in df6.loc[S5]:
+                    y1.append(i)
+                a=y1[1:]
+                if a[0]>a[2]:
+                    z1=z1+"r"
+                else:
+                    z1=z1+"g"
+                plt.figure()
+                plt.plot(x1, y1[1:], color=z1)
+                plt.title('Student Progress')
+                plt.ylabel('Percentage %')
+                plt.xlabel('Class Test')
+                plt.show()
+            elif test == "Show Subjectwise Progress Report":
+                while True:
+                    s=input("Enter the Subject Name: ")
+                    if s == "MCP":
+                        S5=int(input("Enter the Student Roll Number: "))
+                        x1=[]
+                        for i in df4.columns:
+                            x1.append(i)
+                        x1.remove("Name")
+                        y1=[]
+                        z1=''
+                        for i in df4.loc[S5]:
+                            y1.append(i)
+                        a=y1[1:]
+                        if a[1]>a[2]:
+                            z1=z1+"r"
+                        else:
+                            z1=z1+"g"
+                        plt.figure()
+                        plt.plot(x1, y1[1:], color=z1)
+                        plt.title('Student Progress')
+                        plt.ylabel('MCP')
+                        plt.xlabel('Class Test')
+                        plt.show()
+                    elif s == "Python":
+                        S5=int(input("Enter the Student Roll Number: "))
+                        x1=[]
+                        for i in df5.columns:
+                            x1.append(i)
+                        x1.remove("Name")
+                        y1=[]
+                        z1=''
+                        for i in df5.loc[S5]:
+                            y1.append(i)
+                        a=y1[1:]
+                        if a[1]>a[2]:
+                            z1=z1+"r"
+                        else:
+                            z1=z1+"g"
+                        plt.figure()
+                        plt.plot(x1, y1[1:], color=z1)
+                        plt.title('Student Progress')
                         plt.ylabel('Python')
                         plt.xlabel('Class Test')
                         plt.show()
